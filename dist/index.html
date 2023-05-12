@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Google Bard</title>
+  <meta name="description" content="Google Bard Desktop Application">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <webview id="webview" src="https://bard.google.com" class="w-screen h-screen" autosize="on"></webview>
+  <script type="text/javascript">
+    const webview = document.getElementById('webview')
+    webview.addEventListener('dom-ready', () => setInterval(() => webview.executeJavaScript(`document.querySelector('[data-ogsr-fb="true"]') && document.querySelector('[data-ogsr-fb="true"]').remove()`), 500))
+  </script>
+</body>
+</html>

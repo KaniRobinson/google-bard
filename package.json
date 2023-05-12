@@ -1,0 +1,41 @@
+{
+  "name": "bard-mac",
+  "productName": "bard-mac",
+  "version": "1.0.0",
+  "description": "An electron app wrapping Google Bard",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "npm run build && electron .",
+    "build": "webpack"
+  },
+  "keywords": [
+    "google",
+    "bard",
+    "gpt",
+    "mac"
+  ],
+  "author": {
+    "name": "Kani Robinson",
+    "email": "me@kanirobinson.co.uk"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kanirobinson/bard-mac.git"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
+    "babel-loader": "^9.1.2",
+    "concurrently": "^8.0.1",
+    "dotenv": "^16.0.3",
+    "electron": "^24.3.0",
+    "webpack": "^5.82.1",
+    "webpack-cli": "^5.1.1",
+    "webpack-dev-server": "^4.15.0"
+  },
+  "dependencies": {
+    "electron-traywindow-positioner": "^1.1.1",
+    "update-electron-app": "^2.0.1"
+  }
+}
