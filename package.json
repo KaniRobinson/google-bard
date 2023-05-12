@@ -5,8 +5,10 @@
   "description": "An electron app wrapping Google Bard",
   "main": "dist/index.js",
   "scripts": {
-    "start": "npm run build && electron .",
-    "build": "webpack"
+    "start": "electron-forge start",
+    "build": "webpack",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "keywords": [
     "google",
@@ -26,6 +28,8 @@
   "devDependencies": {
     "@babel/core": "^7.21.8",
     "@babel/preset-env": "^7.21.5",
+    "@electron-forge/cli": "^6.1.1",
+    "@electron-forge/publisher-github": "^6.1.1",
     "babel-loader": "^9.1.2",
     "concurrently": "^8.0.1",
     "dotenv": "^16.0.3",
@@ -35,7 +39,36 @@
     "webpack-dev-server": "^4.15.0"
   },
   "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
     "electron-traywindow-positioner": "^1.1.1",
     "update-electron-app": "^2.0.1"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "electron_quick_start"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ],
+      "publishers": []
+    }
   }
 }
